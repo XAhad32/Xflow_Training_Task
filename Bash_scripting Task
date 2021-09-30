@@ -1,0 +1,38 @@
+if_modification(){
+        stat "test_folder/" | grep "Modify"
+
+}
+
+#if_modification function is made to grab the modification time
+
+
+if_modification > /home/rhel7/file3
+
+#redirecting the if_modification output to  file3 for comaprision
+
+
+get_modified_file(){
+        find /home/rhel7/test_folder/ -type f  -mmin -1 -ls
+}
+
+# get_modified_file will get the latest file that has been modified in last 1 min.
+
+f1="/home/rhel7/file2"
+f2="/home/rhel7/file3"
+
+
+html_output(){
+        echo -e "latest modification:\n"
+        get_modified_files
+}
+
+if cmp -s "$f1" "$f2"; then  #cmp command is used to check they  both the mentioned files for are identical or not.
+        :
+else
+
+        echo "some changes were made in:  "
+        get_modified_files
+        cp -fr $f2 $f1                #copying f2 file content to f1.
+        html_output > /var/www/html/index.html
+
+fi
