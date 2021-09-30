@@ -1,9 +1,8 @@
 # Xflow_Training_Task
-Repository regarding the tasks assigned.
 Two funtions are made get_modified_file and html_output
 
-# get_modified_file will get the latest file that has been modified in last 1 min.
-# html_output will show the output of latest file modified on HTML page.
+get_modified_file will get the latest file that has been modified in last 1 min.
+html_output will show the output of latest file modified on HTML page.
 
 Commands that are used are:
 "grep" : ( to get the latest modification infomation)
